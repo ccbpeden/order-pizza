@@ -62,11 +62,16 @@ $(document).ready(function(){
     var inputState = $("input.form-control state").val();
     var newCustomer = new Customer(inputFirstName, inputLastName);
     $(".new-pie").each(function(){
-      var inputSize = $(this).find("input.pie-size").val();
-      var inputSauce = $(this).find("input.pie-sauce").val();
-      var inputTopping = $(this).find("input.pie-topping").val();
+      var inputSize = $(this).find(".pie-size").val();
+      var inputSauce = $(this).find(".pie-sauce").val();
+      var inputTopping = $(this).find(".pie-topping").val();
       var newPie = new Pie(inputSize, inputSauce, inputTopping);
       newCustomer.pies.push(newPie);
+      // newCustomer.pies.forEach(function(){
+        console.log(inputTopping);
+       $("ul#pies").append("<li><span class='pie'>" + inputTopping + "</span></li>")
+      // })
+
     });
   console.log(newCustomer);
   });
