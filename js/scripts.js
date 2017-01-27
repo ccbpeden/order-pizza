@@ -1,7 +1,4 @@
 //back end
-var sizePrice = [21, 23, 28, 31]
-
-
 
 function Customer(first, last, street, city, state){
   this.firstName = first;
@@ -11,7 +8,7 @@ function Customer(first, last, street, city, state){
   this.state = state;
   this.pies = [];
   this.orderTotal = 0;
-}
+};
 
 function Pie(size, sauce, topping){
   this.pieSize = size;
@@ -29,15 +26,14 @@ Pie.prototype.findPrice = function (){
     return 28
   } else if (this.pieSize == "Obscene"){
     return 31
-  }
+  };
 };
 
 Customer.prototype.addTotal = function() {
   for(var i = 0; i < this.pies.length; i++){
     this.orderTotal += this.pies[i].piePrice;
-    }
-    console.log(this.orderTotal);
-}
+  };
+};
 
 
 $(document).ready(function(){
@@ -113,5 +109,10 @@ $(document).ready(function(){
                           "<p><span>Price: " + pie.piePrice + "</span></p>"+
                           "<h1></h1>");
     });
+  $("input#customer-first-name").val("");
+  $("input#customer-last-name").val("");
+  $("input#customer-street").val("");
+  $("input#customer-city").val("");
+  $("input#customer-state").val("");
   });
 });
