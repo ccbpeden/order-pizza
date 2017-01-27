@@ -15,7 +15,7 @@
           <h1>E-Pie-Codus</h1>
           <h3>a figmentary pizzeria that only delivers...</h3>
         </div>
-        <div class="col-md-6">
+        <div id="input">
           <form id="new-customer">
             <div class="form-group">
               <label for="customer-first-name">First Name</label>
@@ -87,19 +87,24 @@
             </div>
             <span class="btn btn-primary" id="add-pie">Another Pie Please!</span>
             <button type="submit" class="btn">That's All I Want!</button>
+            <br>
+            <br>
+            <br>
           </form>
         </div>
-        <div class="col-md-6">
+        <div id="output">
           <div id=show-customer>
             <p>First name: <span class="output-first-name"></span></p>
             <p>Last name: <span class="output-last-name"></span></p>
             <p>Street: <span class="output-street"></span></p>
             <p>City: <span class="output-city"></span></p>
             <p>State: <span class="output-state"></span></p>
-            <p>Total Order Cost: $<span class="output-cost"></span></p>
+            <h3>Total Order Cost: $<span class="output-cost"></span></h3>
             <ul id="pies">
 
             </ul>
+            <button type="button" id="confirm" name="button">Please Confirm Your Order</button>
+            <button type="button" id="reload" name="button">Oh Noes, I made a booboo!</button>
           </div>
         </div>
       </div>

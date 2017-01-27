@@ -17,6 +17,14 @@ function Pie(size, sauce, topping){
     this.piePrice = 0;
 };
 
+var clearFields = function(){
+  $("input#customer-first-name").val("");
+  $("input#customer-last-name").val("");
+  $("input#customer-street").val("");
+  $("input#customer-city").val("");
+  $("input#customer-state").val("");
+};
+
 Pie.prototype.findPrice = function (){
   if (this.pieSize === "Small"){
     return 21
@@ -35,7 +43,7 @@ Customer.prototype.addTotal = function() {
   };
 };
 
-
+//front end
 $(document).ready(function(){
   $("#add-pie").click(function(){
     $("#new-pie").append('<div class="new-pie">'+
@@ -62,14 +70,14 @@ $(document).ready(function(){
                               '<div class="form-group">'+
                                 '<label for="pie-topping">State</label>'+
                                 '<select class="form-control pie-topping">'+
-                                  '<option>pepperoni</option>'+
-                                  '<option>sausage</option>'+
-                                  '<option>bacon</option>'+
-                                  '<option>mushrooms</option>'+
-                                  '<option>artichoke hearts</option>'+
-                                  '<option>garlic</option>'+
-                                  '<option>olives</option>'+
-                                  '<option>roasted peppers</option>'+
+                                  '<option>Pepperoni</option>'+
+                                  '<option>Sausage</option>'+
+                                  '<option>Bacon</option>'+
+                                  '<option>Mushrooms</option>'+
+                                  '<option>Artichoke hearts</option>'+
+                                  '<option>Garlic</option>'+
+                                  '<option>Olives</option>'+
+                                  '<option>Roasted peppers</option>'+
                                 '</select>'+
                               '</div>'+
                             '</div>'+
@@ -77,7 +85,6 @@ $(document).ready(function(){
   });
   $("form#new-customer").submit(function(event) {
     event.preventDefault();
-
     var inputFirstName = $("input#customer-first-name").val();
     var inputLastName = $("input#customer-last-name").val();
     var inputStreet = $("input#customer-street").val();
@@ -93,26 +100,26 @@ $(document).ready(function(){
       newCustomer.pies.push(newPie);
     });
     newCustomer.addTotal();
-    console.log(newCustomer);
     $(".output-first-name").text(newCustomer.firstName);
     $(".output-last-name").text(newCustomer.lastName);
     $(".output-street").text(newCustomer.street);
     $(".output-city").text(newCustomer.city);
     $(".output-state").text(newCustomer.state);
     $(".output-cost").text(newCustomer.orderTotal);
-
-
     newCustomer.pies.forEach(function(pie){
-      $("ul#pies").append("<li><span class='pie'>Pie: " + pie.pieTopping + "</span></li>"+
-                          "<p><span>Sauce: " + pie.pieSauce + "</span></p>"+
-                          "<p><span>Size: " + pie.pieSize + "</span></p>"+
-                          "<p><span>Price: $" + pie.piePrice + "</span></p>"+
-                          "<h1></h1>");
+      $("ul#pies").append("<li><span class='pie'>Pie:</span> " + pie.pieTopping +
+                          "<br>   Sauce: " + pie.pieSauce + "<br>  Size: " + pie.pieSize + "<br>  Price: $" + pie.piePrice + "</li><h1></h1>");
     });
-  $("input#customer-first-name").val("");
-  $("input#customer-last-name").val("");
-  $("input#customer-street").val("");
-  $("input#customer-city").val("");
-  $("input#customer-state").val("");
+    clearFields();
+    $("#input").slideUp();
+    $("#output").slideDown();
+    $("#confirm").click(function(){
+      alert("Thanks for confirming your order.  If this were a real pizzeria, our scurvy kitchen slaves would even now commence making your gutbomb, but since it isn't, we're going to refresh the page.");
+      location.reload();
+    });
+    $("#reload").click(function(){
+      alert("Sorry about that, please start all over again!");
+      location.reload();
+    });
   });
 });
