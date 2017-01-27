@@ -6,3 +6,12 @@
 .pie:hover {
   text-decoration: underline;
 }
+
+h1{
+  background-image:url(../img/pizzabackground.jpg);
+  font-size: 60px;
+}
+
+img{
+  margin-bottom: 20px;
+}

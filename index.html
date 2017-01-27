@@ -41,36 +41,45 @@
               <div class="new-pie">
                 <div class="form-group">
                   <label for="pie-size">Pie Size</label>
-                  <select class="form-control pie-size">
-                    <option>Small</option>
-                    <option>Medium</option>
-                    <option>Large</option>
-                    <option>Obscene</option>
-                  </select>
+                  <div class="italian">
+                    <img src="img/SMLXL.png" alt="Pizza Sizes" style="width:304px;">
+                    <select class="form-control pie-size">
+                      <option>Small</option>
+                      <option>Medium</option>
+                      <option>Large</option>
+                      <option>Obscene</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="pie-sauce">Sauce</label>
-                  <select class="form-control pie-sauce">
-                    <option>Tomato</option>
-                    <option>Olive Oil</option>
-                    <option>Basil Pesto</option>
-                    <option>Bechamel</option>
-                  </select>
+                  <div class="italian">
+                    <img src="img/tomatopizza.jpg" alt="tomato sauce" style="width:120px;height:120px;"><img src="img/oliveoilpizza.jpeg" alt="olive oil pizza" style="width:120px;height:120px;"><img src="img/pestopizza.jpeg" alt="pesto pizza" style="width:120px;height:120px;"><img src="img/whitesaucepizza.jpg" alt="white pizza" style="width:120px;height:120px;">
+                    <select class="form-control pie-sauce">
+                      <option>Tomato</option>
+                      <option>Olive Oil</option>
+                      <option>Basil Pesto</option>
+                      <option>Bechamel</option>
+                    </select>
+                  </div>
                 </div>
                 <div id="new-toppings">
                   <div class="new-topping">
                     <div class="form-group">
-                      <label for="pie-topping">Topping</label>
-                      <select class="form-control pie-topping">
-                        <option>pepperoni</option>
-                        <option>sausage</option>
-                        <option>bacon</option>
-                        <option>mushrooms</option>
-                        <option>artichoke hearts</option>
-                        <option>garlic</option>
-                        <option>olives</option>
-                        <option>roasted peppers</option>
+                      <label for="pie-topping">Toppings</label>
+                      <div class="italian">
+                        <img src="img/pepperoni.jpg" alt="pepperoni" style="width:120px;height:120px;"><img src="img/sausage.jpeg" alt="sausage" style="width:120px;height:120px;"><img src="img/bacon.jpeg" alt="bacon" style="width:120px;height:120px;"><img src="img/mushroom.jpeg" alt="mushrooms" style="width:120px;height:120px;"><img src="img/artichoke.jpeg" alt="artichoke hearts" style="width:120px;height:120px;"><img src="img/garlic.jpeg" alt="garlic" style="width:120px;height:120px;"><img src="img/olives.jpeg" alt="black olives" style="width:120px;height:120px;"><img src="img/redpeppers.jpeg" alt="red peppers" style="width:120px;height:120px;">
+                        <select class="form-control pie-topping">
+                          <option>Pepperoni</option>
+                          <option>Sausage</option>
+                          <option>Bacon</option>
+                          <option>Mushrooms</option>
+                          <option>Artichoke hearts</option>
+                          <option>Garlic</option>
+                          <option>Olives</option>
+                          <option>Roasted Peppers</option>
                       </select>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -87,7 +96,7 @@
             <p>Street: <span class="output-street"></span></p>
             <p>City: <span class="output-city"></span></p>
             <p>State: <span class="output-state"></span></p>
-            <p>Total Order Cost: <span class="output-cost"></span></p>
+            <p>Total Order Cost: $<span class="output-cost"></span></p>
             <ul id="pies">
 
             </ul>

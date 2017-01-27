@@ -106,7 +106,7 @@ $(document).ready(function(){
       $("ul#pies").append("<li><span class='pie'>Pie: " + pie.pieTopping + "</span></li>"+
                           "<p><span>Sauce: " + pie.pieSauce + "</span></p>"+
                           "<p><span>Size: " + pie.pieSize + "</span></p>"+
-                          "<p><span>Price: " + pie.piePrice + "</span></p>"+
+                          "<p><span>Price: $" + pie.piePrice + "</span></p>"+
                           "<h1></h1>");
     });
   $("input#customer-first-name").val("");
