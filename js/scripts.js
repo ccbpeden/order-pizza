@@ -1,17 +1,41 @@
 //back end
+var sizePrice = [21, 23, 28, 31]
 
-function Customer(first, last){
+
+
+function Customer(first, last, street, city, state){
   this.firstName = first;
   this.lastName = last;
+  this.street = street;
+  this.city = city;
+  this.state = state;
   this.pies = [];
-
+  this.orderTotal = 0;
 }
 
-function Pie(size, sauce, topping){
+function Pie(size, sauce, topping, price){
   this.pieSize = size;
   this.pieSauce = sauce;
-  this.topping = topping;
+  this.pieTopping = topping;
+    this.piePrice = price;
+};
+
+var findPrice = function (input){
+  if (input === "Small"){
+    return 21
+  } else if (input == "Medium"){
+    return 23
+  } else if (input == "Large"){
+    return 28
+  } else if (input == "Obscene"){
+    return 31
+  }
+};
+
+Customer.prototype.addTotal = function(input) {
+  this.orderTotal = this.orderTotal + input;
 }
+
 
 $(document).ready(function(){
   $("#add-pie").click(function(){
@@ -57,22 +81,34 @@ $(document).ready(function(){
 
     var inputFirstName = $("input#customer-first-name").val();
     var inputLastName = $("input#customer-last-name").val();
-    var inputStreet = $("input.form-control street").val();
-    var inputCity = $("input.form-control city").val();
-    var inputState = $("input.form-control state").val();
-    var newCustomer = new Customer(inputFirstName, inputLastName);
+    var inputStreet = $("input#customer-street").val();
+    var inputCity = $("input#customer-city").val();
+    var inputState = $("input#customer-state").val();
+    var newCustomer = new Customer(inputFirstName, inputLastName, inputStreet, inputCity, inputState);
     $(".new-pie").each(function(){
       var inputSize = $(this).find(".pie-size").val();
       var inputSauce = $(this).find(".pie-sauce").val();
       var inputTopping = $(this).find(".pie-topping").val();
-      var newPie = new Pie(inputSize, inputSauce, inputTopping);
+      var inputPiePrice = findPrice(inputSize);
+      var newPie = new Pie(inputSize, inputSauce, inputTopping, inputPiePrice);
       newCustomer.pies.push(newPie);
-      // newCustomer.pies.forEach(function(){
-        console.log(inputTopping);
-       $("ul#pies").append("<li><span class='pie'>" + inputTopping + "</span></li>")
-      // })
-
+      newCustomer.addTotal(inputPiePrice);
     });
-  console.log(newCustomer);
+    console.log(newCustomer);
+    $(".output-first-name").text(newCustomer.firstName);
+    $(".output-last-name").text(newCustomer.lastName);
+    $(".output-street").text(newCustomer.street);
+    $(".output-city").text(newCustomer.city);
+    $(".output-state").text(newCustomer.state);
+    $(".output-cost").text(newCustomer.orderTotal);
+
+
+    newCustomer.pies.forEach(function(pie){
+      $("ul#pies").append("<li><span class='pie'>Pie: " + pie.pieTopping + "</span></li>"+
+                          "<p><span>Sauce: " + pie.pieSauce + "</span></p>"+
+                          "<p><span>Size: " + pie.pieSize + "</span></p>"+
+                          "<p><span>Price: " + pie.piePrice + "</span></p>"+
+                          "<h1></h1>");
+    });
   });
 });
