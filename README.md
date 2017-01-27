@@ -12,9 +12,11 @@ _This application allows the user to order multiple pizzas from a fictional pizz
 
 | Behavior                                              |   Input example   |  Output example |
 |-------------------------------------------------------|:-----------------:|:---------------:|
-| Takes user input                                   | cake              | cake              |
-| Allows user to order multiple pies                        | cake, cheese, wine| cake, cheese, wine|
-| has option to mark completed task                     | cake              | (check) cake      |          | removes marked tasks when button pressed              | (check) cake      |                |
+| Takes order information from user                                  | cake              | cake              |
+| Allows user to see order made                   | small, pepperoni, red sauce  | small, pepperoni, red sauce     |   
+| Allows user to order multiple pies                        | 1 small, 2 med| 1 small, 2 med|
+| displays individual pizza prices        | small pizza      |  $21              |
+| calculates total order price for multiple pizzas            | 2smalls & 1 med     |      63$          |
 
 
 ## Setup/Installation Requirements
