@@ -13,27 +13,30 @@ function Customer(first, last, street, city, state){
   this.orderTotal = 0;
 }
 
-function Pie(size, sauce, topping, price){
+function Pie(size, sauce, topping){
   this.pieSize = size;
   this.pieSauce = sauce;
   this.pieTopping = topping;
-    this.piePrice = price;
+    this.piePrice = 0;
 };
 
-var findPrice = function (input){
-  if (input === "Small"){
+Pie.prototype.findPrice = function (){
+  if (this.pieSize === "Small"){
     return 21
-  } else if (input == "Medium"){
+  } else if (this.pieSize == "Medium"){
     return 23
-  } else if (input == "Large"){
+  } else if (this.pieSize == "Large"){
     return 28
-  } else if (input == "Obscene"){
+  } else if (this.pieSize == "Obscene"){
     return 31
   }
 };
 
-Customer.prototype.addTotal = function(input) {
-  this.orderTotal = this.orderTotal + input;
+Customer.prototype.addTotal = function() {
+  for(var i = 0; i < this.pies.length; i++){
+    this.orderTotal += this.pies[i].piePrice;
+    }
+    console.log(this.orderTotal);
 }
 
 
@@ -89,11 +92,11 @@ $(document).ready(function(){
       var inputSize = $(this).find(".pie-size").val();
       var inputSauce = $(this).find(".pie-sauce").val();
       var inputTopping = $(this).find(".pie-topping").val();
-      var inputPiePrice = findPrice(inputSize);
-      var newPie = new Pie(inputSize, inputSauce, inputTopping, inputPiePrice);
+      var newPie = new Pie(inputSize, inputSauce, inputTopping);
+      newPie.piePrice = newPie.findPrice();
       newCustomer.pies.push(newPie);
-      newCustomer.addTotal(inputPiePrice);
     });
+    newCustomer.addTotal();
     console.log(newCustomer);
     $(".output-first-name").text(newCustomer.firstName);
     $(".output-last-name").text(newCustomer.lastName);
