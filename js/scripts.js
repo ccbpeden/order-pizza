@@ -7,13 +7,11 @@ function Customer(first, last){
 
 }
 
-function Pie(size, sauce){
+function Pie(size, sauce, topping){
   this.pieSize = size;
   this.pieSauce = sauce;
-  this.toppings = [];
+  this.topping = topping;
 }
-
-var NewCustomer = new Customer;
 
 $(document).ready(function(){
   $("#add-pie").click(function(){
@@ -53,5 +51,23 @@ $(document).ready(function(){
                               '</div>'+
                             '</div>'+
                           '</div>');
+  });
+  $("form#new-customer").submit(function(event) {
+    event.preventDefault();
+
+    var inputFirstName = $("input#customer-first-name").val();
+    var inputLastName = $("input#customer-last-name").val();
+    var inputStreet = $("input.form-control street").val();
+    var inputCity = $("input.form-control city").val();
+    var inputState = $("input.form-control state").val();
+    var newCustomer = new Customer(inputFirstName, inputLastName);
+    $(".new-pie").each(function(){
+      var inputSize = $(this).find("input.pie-size").val();
+      var inputSauce = $(this).find("input.pie-sauce").val();
+      var inputTopping = $(this).find("input.pie-topping").val();
+      var newPie = new Pie(inputSize, inputSauce, inputTopping);
+      newCustomer.pies.push(newPie);
+    });
+  console.log(newCustomer);
   });
 });
